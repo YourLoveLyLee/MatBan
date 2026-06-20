@@ -1,6 +1,8 @@
 [SETUP-GUIDE.md](https://github.com/user-attachments/files/29161856/SETUP-GUIDE.md)
 # Setup Guide — The Block Court
 
+Site: http://matban.mooo.com/
+
 This site is ready to use right now with sample data. Follow the steps below to
 connect it to your own Google Sheet so you (or anyone else) can update games,
 scores, squads, and announcements just by typing into a spreadsheet — no code.
