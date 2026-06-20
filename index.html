@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Block Court — Neighborhood Hoops</title>
+<meta name="description" content="Schedules, scores, squads, and updates for the neighborhood pickup basketball games.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">&#127936;</span>
+      <span class="brand-text">THE BLOCK COURT</span>
+    </a>
+    <nav class="main-nav" aria-label="Section navigation">
+      <a href="#schedule">Schedule</a>
+      <a href="#results">Results</a>
+      <a href="#rosters">Squads</a>
+      <a href="#news">Court Talk</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO / NEXT UP -->
+  <section id="top" class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Riverside Court &middot; Pickup League</p>
+      <h1 class="hero-title">Next up on<br>the blacktop</h1>
+
+      <div id="next-up-card" class="next-up-card" aria-live="polite">
+        <!-- populated by script.js -->
+        <p class="loading-text">Loading next game&hellip;</p>
+      </div>
+
+      <p class="hero-sub">No more digging through Facebook comments. Everything's right here.</p>
+    </div>
+  </section>
+
+  <div class="court-divider" role="presentation"></div>
+
+  <!-- SCHEDULE -->
+  <section id="schedule" class="section">
+    <div class="wrap">
+      <h2 class="section-title">On the Schedule</h2>
+      <p class="section-sub">Every game lined up. Pull up.</p>
+      <div id="schedule-list" class="card-grid">
+        <p class="loading-text">Loading schedule&hellip;</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="court-divider" role="presentation"></div>
+
+  <!-- RESULTS -->
+  <section id="results" class="section">
+    <div class="wrap">
+      <h2 class="section-title">Final Scores</h2>
+      <p class="section-sub">What went down.</p>
+      <div id="results-list" class="results-list">
+        <p class="loading-text">Loading results&hellip;</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="court-divider" role="presentation"></div>
+
+  <!-- ROSTERS -->
+  <section id="rosters" class="section">
+    <div class="wrap">
+      <h2 class="section-title">The Squads</h2>
+      <p class="section-sub">Who's running it.</p>
+      <div id="rosters-list" class="roster-grid">
+        <p class="loading-text">Loading squads&hellip;</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="court-divider" role="presentation"></div>
+
+  <!-- ANNOUNCEMENTS -->
+  <section id="news" class="section">
+    <div class="wrap">
+      <h2 class="section-title">Court Talk</h2>
+      <p class="section-sub">Updates, changes, heads-ups.</p>
+      <div id="news-list" class="news-feed">
+        <p class="loading-text">Loading updates&hellip;</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>THE BLOCK COURT &middot; Run by the neighborhood, for the neighborhood.</p>
+    <a href="#" id="facebook-link" target="_blank" rel="noopener">Follow on Facebook &rarr;</a>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
