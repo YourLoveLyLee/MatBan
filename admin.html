@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Update The Block Court</title>
+<meta name="robots" content="noindex">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-mark">&#127936;</span>
+      <span class="brand-text">THE BLOCK COURT</span>
+    </a>
+    <a href="index.html" class="back-link">&larr; Back to site</a>
+  </div>
+</header>
+
+<main class="wrap admin-wrap">
+
+  <h1 class="admin-title">Add an Update</h1>
+  <p class="admin-sub">Fill this out, hit submit. The website updates on its own.</p>
+
+  <div class="admin-tabs" role="tablist" aria-label="Update type">
+    <button class="admin-tab active" data-target="form-game">Add Game</button>
+    <button class="admin-tab" data-target="form-result">Add Result</button>
+    <button class="admin-tab" data-target="form-player">Add Player</button>
+    <button class="admin-tab" data-target="form-news">Post Update</button>
+  </div>
+
+  <p id="pin-status" class="pin-status"></p>
+
+  <!-- ADD GAME -->
+  <form id="form-game" class="admin-form" data-sheet="Schedule">
+    <label>PIN
+      <input type="password" name="pin" inputmode="numeric" required>
+    </label>
+    <label>Date
+      <input type="date" name="Date" required>
+    </label>
+    <label>Time
+      <input type="time" name="Time" required>
+    </label>
+    <label>Team A
+      <input type="text" name="TeamA" required>
+    </label>
+    <label>Team B
+      <input type="text" name="TeamB" required>
+    </label>
+    <label>Location
+      <input type="text" name="Location" value="Riverside Court">
+    </label>
+    <label>Notes <span class="optional">(optional)</span>
+      <input type="text" name="Notes">
+    </label>
+    <button type="submit" class="admin-submit">Add Game</button>
+    <p class="form-message" aria-live="polite"></p>
+  </form>
+
+  <!-- ADD RESULT -->
+  <form id="form-result" class="admin-form hidden" data-sheet="Results">
+    <label>PIN
+      <input type="password" name="pin" inputmode="numeric" required>
+    </label>
+    <label>Date
+      <input type="date" name="Date" required>
+    </label>
+    <label>Team A
+      <input type="text" name="TeamA" required>
+    </label>
+    <label>Score A
+      <input type="number" name="ScoreA" min="0" required>
+    </label>
+    <label>Team B
+      <input type="text" name="TeamB" required>
+    </label>
+    <label>Score B
+      <input type="number" name="ScoreB" min="0" required>
+    </label>
+    <button type="submit" class="admin-submit">Add Result</button>
+    <p class="form-message" aria-live="polite"></p>
+  </form>
+
+  <!-- ADD PLAYER -->
+  <form id="form-player" class="admin-form hidden" data-sheet="Rosters">
+    <label>PIN
+      <input type="password" name="pin" inputmode="numeric" required>
+    </label>
+    <label>Team
+      <input type="text" name="Team" required>
+    </label>
+    <label>Player Name
+      <input type="text" name="Player" required>
+    </label>
+    <label>Number <span class="optional">(optional)</span>
+      <input type="text" name="Number">
+    </label>
+    <label>Position <span class="optional">(optional)</span>
+      <input type="text" name="Position">
+    </label>
+    <button type="submit" class="admin-submit">Add Player</button>
+    <p class="form-message" aria-live="polite"></p>
+  </form>
+
+  <!-- POST UPDATE -->
+  <form id="form-news" class="admin-form hidden" data-sheet="Announcements">
+    <label>PIN
+      <input type="password" name="pin" inputmode="numeric" required>
+    </label>
+    <label>Title
+      <input type="text" name="Title" required>
+    </label>
+    <label>Message
+      <textarea name="Message" rows="3" required></textarea>
+    </label>
+    <button type="submit" class="admin-submit">Post Update</button>
+    <p class="form-message" aria-live="polite"></p>
+  </form>
+
+</main>
+
+<script src="admin.js"></script>
+</body>
+</html>

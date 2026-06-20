@@ -1,0 +1,65 @@
+/* =========================================================
+   THE BLOCK COURT — Apps Script backend
+   ---------------------------------------------------------
+   WHAT THIS DOES:
+   Receives submissions from admin.html and appends a new row
+   to the correct tab (Schedule / Results / Rosters /
+   Announcements) in this spreadsheet. No coding needed after
+   setup — just paste this in once and deploy.
+
+   HOW TO INSTALL (one-time):
+   1. Open your Google Sheet.
+   2. Click Extensions → Apps Script.
+   3. Delete anything in the editor, paste this whole file in.
+   4. Change ADMIN_PIN below to a code you'll remember.
+   5. Click Deploy → New deployment.
+   6. Click the gear icon next to "Select type" → choose "Web app".
+   7. Execute as: Me. Who has access: Anyone.
+   8. Click Deploy, then Authorize access (approve the warnings —
+      this is your own script, it's safe).
+   9. Copy the Web app URL it gives you.
+   10. Paste that URL into admin.js (see CONFIG.webAppUrl).
+   ========================================================= */
+
+// Change this to your own secret code. Whoever uses admin.html
+// will need to type this PIN before anything can be added.
+const ADMIN_PIN = "1317";
+
+function doPost(e) {
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+  };
+
+  try {
+    const body = JSON.parse(e.postData.contents);
+
+    if (body.pin !== ADMIN_PIN) {
+      return respond({ success: false, error: "Wrong PIN." }, headers);
+    }
+
+    const validSheets = ["Schedule", "Results", "Rosters", "Announcements"];
+    if (!validSheets.includes(body.sheet)) {
+      return respond({ success: false, error: "Unknown sheet: " + body.sheet }, headers);
+    }
+
+    const ss = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = ss.getSheetByName(body.sheet);
+
+    if (!sheet) {
+      return respond({ success: false, error: "Tab not found: " + body.sheet + ". Check your tab names match exactly." }, headers);
+    }
+
+    sheet.appendRow(body.row);
+
+    return respond({ success: true }, headers);
+
+  } catch (err) {
+    return respond({ success: false, error: String(err) }, headers);
+  }
+}
+
+function respond(obj, headers) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}

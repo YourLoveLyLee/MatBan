@@ -1,0 +1,138 @@
+/* ===== Admin page specific styles ===== */
+
+.admin-wrap {
+  padding: 48px 24px 80px;
+  max-width: 560px;
+}
+
+.back-link {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--chalk-dim);
+}
+.back-link:hover { color: var(--ball-orange); }
+
+.admin-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  margin: 0 0 6px;
+}
+
+.admin-sub {
+  color: var(--chalk-dim);
+  margin: 0 0 28px;
+}
+
+.admin-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.admin-tab {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: transparent;
+  color: var(--chalk-dim);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 9px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+
+.admin-tab:hover { border-color: var(--ball-orange); color: var(--chalk); }
+
+.admin-tab.active {
+  background: var(--ball-orange);
+  border-color: var(--ball-orange);
+  color: var(--asphalt);
+}
+
+.pin-status {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--paint-yellow);
+  min-height: 1.2em;
+  margin: 0 0 12px;
+}
+
+.admin-form {
+  background: var(--asphalt-card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-form.hidden { display: none; }
+
+.admin-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--chalk-dim);
+}
+
+.admin-form .optional {
+  font-weight: 400;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.admin-form input,
+.admin-form textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--chalk);
+  background: var(--asphalt);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+.admin-form input:focus,
+.admin-form textarea:focus {
+  outline: none;
+  border-color: var(--ball-orange);
+}
+
+.admin-submit {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 1.05rem;
+  background: var(--ball-orange);
+  color: var(--asphalt);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: transform 0.1s ease, opacity 0.15s ease;
+}
+
+.admin-submit:hover { transform: translateY(-1px); }
+.admin-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+.form-message {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  margin: 0;
+  min-height: 1.2em;
+}
+
+.form-message.success { color: var(--ball-orange); }
+.form-message.error { color: #ff5c5c; }
