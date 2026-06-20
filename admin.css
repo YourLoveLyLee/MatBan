@@ -1,7 +1,116 @@
 /* ===== Admin page specific styles ===== */
 
+.hidden { display: none !important; }
+
+/* ===== PIN Gate ===== */
+
+.pin-gate {
+  min-height: calc(100vh - 68px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  transition: opacity 0.28s ease;
+}
+.pin-gate.unlocking { opacity: 0; }
+
+.pin-gate-card {
+  width: 100%;
+  max-width: 360px;
+  background: var(--asphalt-card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 36px 30px 30px;
+  text-align: center;
+}
+
+.pin-gate-card.shake { animation: pinShake 0.35s ease; }
+@keyframes pinShake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+.pin-gate-icon {
+  font-size: 1.8rem;
+  width: 56px; height: 56px;
+  margin: 0 auto 16px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255, 106, 26, 0.12);
+  border: 1px solid rgba(255, 106, 26, 0.3);
+  border-radius: 50%;
+}
+
+.pin-gate-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  margin: 0 0 6px;
+}
+
+.pin-gate-sub {
+  color: var(--chalk-dim);
+  font-size: 0.88rem;
+  margin: 0 0 24px;
+}
+
+#pin-gate-form { display: flex; flex-direction: column; gap: 12px; }
+
+#pin-gate-input {
+  font-family: var(--font-mono);
+  font-size: 1.6rem;
+  letter-spacing: 0.3em;
+  text-align: center;
+  color: var(--chalk);
+  background: var(--asphalt);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 12px;
+}
+#pin-gate-input:focus {
+  outline: none;
+  border-color: var(--ball-orange);
+}
+
+.pin-gate-submit {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 1.05rem;
+  background: var(--ball-orange);
+  color: var(--asphalt);
+  border: none;
+  border-radius: 10px;
+  padding: 13px 20px;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.pin-gate-submit:hover { transform: translateY(-1px); }
+
+.pin-remember {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  font-size: 0.82rem;
+  color: var(--chalk-dim);
+  cursor: pointer;
+}
+.pin-remember input { accent-color: var(--ball-orange); }
+
+.pin-gate-error {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #ff5c5c;
+  min-height: 1.2em;
+  margin: 14px 0 0;
+}
+
+/* ===== Admin content ===== */
+
 .admin-wrap {
-  padding: 48px 24px 80px;
+  padding: 40px 24px 80px;
   max-width: 560px;
 }
 
@@ -14,6 +123,14 @@
 }
 .back-link:hover { color: var(--ball-orange); }
 
+.admin-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
 .admin-title {
   font-family: var(--font-display);
   text-transform: uppercase;
@@ -23,8 +140,25 @@
 
 .admin-sub {
   color: var(--chalk-dim);
-  margin: 0 0 28px;
+  margin: 0;
 }
+
+.lock-btn {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: transparent;
+  color: var(--chalk-dim);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.lock-btn:hover { border-color: var(--ball-orange); color: var(--chalk); }
 
 .admin-tabs {
   display: flex;
@@ -56,14 +190,6 @@
   color: var(--asphalt);
 }
 
-.pin-status {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--paint-yellow);
-  min-height: 1.2em;
-  margin: 0 0 12px;
-}
-
 .admin-form {
   background: var(--asphalt-card);
   border: 1px solid var(--line);
@@ -73,8 +199,6 @@
   flex-direction: column;
   gap: 16px;
 }
-
-.admin-form.hidden { display: none; }
 
 .admin-form label {
   display: flex;

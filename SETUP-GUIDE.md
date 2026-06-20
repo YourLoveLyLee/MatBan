@@ -58,7 +58,43 @@ You need to do this **once per tab** (4 times total).
 
 ---
 
-## Part 3 — Paste the links into the site
+## Part 2.5 — Connect the admin page (so you can add updates without touching code)
+
+This lets you fill out a simple form (`admin.html`) to add games, scores,
+players, and announcements — it writes straight into your Google Sheet, and
+the website picks it up automatically.
+
+1. In your Google Sheet, click **Extensions → Apps Script**.
+2. Delete anything in the editor box, then open `google-apps-script.txt`
+   (included in your files) and paste its entire contents in.
+3. Near the top, change this line to a PIN you'll remember:
+   ```js
+   const ADMIN_PIN = "1317";
+   ```
+4. Click **Deploy → New deployment**.
+5. Click the gear icon next to "Select type" → choose **Web app**.
+6. Set **Execute as: Me** and **Who has access: Anyone**.
+7. Click **Deploy**. It'll ask you to authorize — click through the warnings
+   (it's your own script, this is normal and safe).
+8. Copy the **Web app URL** it shows you.
+9. Open `admin.js` and paste that URL in here:
+   ```js
+   const CONFIG = {
+     webAppUrl: "PASTE_YOUR_URL_HERE",
+   };
+   ```
+10. Save, re-upload `admin.js` to your GitHub repo if you've already published it.
+
+That's it. Open `admin.html` on your phone — you'll see a lock screen first.
+Enter your PIN once to unlock the whole page, then switch freely between
+Add Game / Add Result / Add Player / Post Update without re-entering it.
+There's a "Lock" button at the top if you want to re-lock it manually (e.g.
+before handing your phone to someone). Don't share the `admin.html` link or
+your PIN publicly — anyone who has both could add junk entries to your sheet.
+
+---
+
+
 
 1. Open `script.js` in the website folder.
 2. At the very top, find this block:
@@ -115,3 +151,7 @@ a custom address like `webname.is-a.dev` instead.
 - Team names in the Rosters tab must match exactly how they appear in
   Schedule/Results if you want everything to line up visually (this is
   cosmetic only — nothing will break if they don't match).
+- `admin.html` is not linked from the main site on purpose — bookmark it
+  yourself on your phone for quick access after games.
+- Changes made through `admin.html` (or directly in the Sheet) usually show
+  up on the live site within a minute or two.
